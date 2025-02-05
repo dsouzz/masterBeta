@@ -1,0 +1,89 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #222222;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+
+footer {
+    background-color: #222222;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: auto; /* Isso faz com que o footer vá para o final da página */
+}
+
+main {
+    width: 70%;
+    max-width: 800px;
+    margin: auto; /* Centraliza na tela */
+    padding: 20px;
+    text-align: center;
+    p {
+        width: 100%;
+        text-align: justify;
+    }
+    h1 {
+        text-align: center;
+    }
+    hr {
+        width: 50%;
+        margin: 10px auto; /* Centraliza o <hr> */
+    }
+}
+
+#returnTo {
+    border-radius: 5px;
+    width: 50%;
+    margin: 0;
+    border: 0;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+}
+#returnTo:hover {
+    background-color: #0056b3;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    main {
+        width: 90%; /* Aumenta a largura em telas menores */
+        padding: 15px;
+    }
+
+    main hr {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    main {
+        width: 90%; /* Ocupa toda a tela no mobile */
+        padding: 10px;
+    }
+
+    main hr {
+        width: 90%;
+    }
+
+    #returnTo {
+        width: 100%; /* Botão ocupa toda a largura */
+        text-align: center;
+    }
+}

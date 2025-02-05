@@ -1,0 +1,375 @@
+/* Keyframe para o efeito ao redor da foto de perfil dos usuarios */
+@keyframes rainbow {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 100%;
+    }
+}
+
+/* Keyframe para o efeito de bounce ao curtir um post */
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+        /* Tamanho original */
+    }
+
+    30% {
+        transform: scale(1.2);
+        /* Aumenta o tamanho */
+    }
+
+    50% {
+        transform: scale(0.9);
+        /* Diminui um pouco, para o efeito de "pulo" */
+    }
+
+    70% {
+        transform: scale(1.1);
+        /* Volta um pouco para o tamanho aumentado */
+    }
+
+    100% {
+        transform: scale(1);
+        /* Retorna ao tamanho original */
+    }
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: transparent;
+    background: linear-gradient(to top right, #000000, #1f1f1f);
+    color: white;
+}
+
+header {
+    background-color: #222222;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+#header-content {
+    display: flex;
+    position: relative;
+}
+
+.perfil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: absolute;
+    left: 87%;
+    top: 20%;
+
+    /* Edite as configurações da imagem aqui: */
+    img {
+        width: 40px;
+        height: 40px;
+        /* Deixa a imagem circular: */
+        border-radius: 50%;
+        border: 2px solid black;
+        cursor: pointer;
+    }
+
+    /* Edite as configurações do texto aqui: */
+    #userName {
+        font-size: 16px;
+        color: white;
+    }
+}
+
+.logOut {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    position: fixed;
+    left: 98%;
+    top: 4%;
+
+    img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    background-color: #222222;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: 50px;
+    /* Adiciona espaçamento fixo antes do footer */
+}
+
+main {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.post {
+    width: 600px;
+    background: #141414;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px 0;
+    box-shadow: 2px 2px 10px rgba(160, 160, 160, 0.1);
+    font-family: Roboto, sans-serif;
+
+    .profile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        position: absolute;
+        cursor: pointer;
+
+        img {
+            width: 40px;
+            height: 40px;
+            border: 2px solid transparent;
+            /* Ajuste a espessura da borda conforme necessário */
+            border-radius: 50%;
+            background-image: linear-gradient(90deg, #ff0000, #ff7300, #fffb00, #00ff00, #8a2be2, #ff007f);
+            background-size: 1000%;
+            animation: rainbow 12s linear infinite;
+        }
+    }
+
+    #hour {
+        display: flex;
+        align-items: right;
+        justify-content: right;
+    }
+}
+
+.post img {
+    width: 600px;
+    height: 600px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.post p {
+    font-size: 16px;
+    margin-top: 8px;
+
+    #nameUs {
+        cursor: pointer;
+    }
+}
+
+#mensagemFim {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 30px;
+    /* Adiciona espaço acima da mensagem */
+    padding: 20px;
+}
+
+#botaoCarregarMais {
+    display: block;
+    margin: 30px auto;
+    /* Centraliza e adiciona espaço acima e abaixo */
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#botaoCarregarMais:hover {
+    background-color: #0056b3;
+}
+
+.interactions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 10px;
+
+    /* Estilo Base para todos os botões */
+    button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* CSS do botão de curtida */
+.like-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.like-icon {
+    fill: gray;
+    /* Cor padrão do ícone */
+    transition: fill 0.3s, transform 0.3s;
+}
+
+.like-icon.liked {
+    fill: red;
+    /* Cor do coração quando curtido */
+    animation: bounce 0.6s ease;
+    /* Efeito de bounce */
+}
+
+/* 📌 Responsividade para telas menores que 1024px (tablets e notebooks pequenos) */
+@media (max-width: 1024px) {
+    main {
+        width: 80%;
+    }
+
+    .post {
+        width: 90%;
+    }
+
+    .post img {
+        width: 100%;
+        height: auto;
+    }
+
+    .perfil {
+        left: 75%;
+    }
+
+    .logOut {
+        left: 90%;
+    }
+}
+
+/* 📌 Responsividade para telas de 1024x600 */
+@media (max-width: 1024px) and (max-height: 600px) {
+    main {
+        width: 85%;
+    }
+
+    .post {
+        width: 80%;
+    }
+
+    .post img {
+        width: 100%;
+        height: auto;
+    }
+
+    .perfil {
+        left: auto;
+        right: 10px;
+        top: 50px;
+        flex-direction: row;
+    }
+
+    .perfil img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .logOut {
+        left: auto;
+        right: 10px;
+        top: 50px;
+    }
+
+    .logOut img {
+        width: 25px;
+        height: 25px;
+    }
+
+    #botaoCarregarMais {
+        width: 80%;
+        font-size: 14px;
+    }
+
+    #mensagemFim {
+        font-size: 1.3rem;
+    }
+}
+
+/* 📌 Responsividade para telas menores que 768px (celulares grandes e tablets) */
+@media (max-width: 768px) {
+    main {
+        width: 95%;
+    }
+
+    .post {
+        width: 100%;
+    }
+
+    .perfil {
+        left: auto;
+        position: static;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logOut {
+        left: auto;
+        right: 10px;
+        top: 5px;
+    }
+}
+
+/* 📌 Responsividade para telas menores que 480px (celulares pequenos) */
+@media (max-width: 480px) {
+    main {
+        width: 90%;
+        justify-content: center;
+    }
+
+    .post {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .post img {
+        width: 100%;
+        height: auto;
+    }
+
+    .perfil img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .logOut img {
+        width: 25px;
+        height: 25px;
+    }
+
+    #botaoCarregarMais {
+        width: 90%;
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    #mensagemFim {
+        font-size: 1.2rem;
+    }
+}

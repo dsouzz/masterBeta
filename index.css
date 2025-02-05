@@ -1,0 +1,112 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: transparent;
+    background: linear-gradient(to top right, #000000, #1f1f1f);
+}
+
+header {
+    background-color: #222222;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+footer {
+    background-color: #222222;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: auto;
+    font-size: 0.9em;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Adiciona espaço nas laterais em telas menores */
+}
+
+#form {
+    background-color: lightgray;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 350px; /* Evita que o formulário fique muito grande em telas grandes */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+.input-group input:hover {
+    border: 1px solid #5a5a5a;
+}
+
+button {
+    padding: 12px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsividade para telas menores que 768px */
+@media (max-width: 768px) {
+    body {
+        min-height: 100vh;
+    }
+    header, footer {
+        padding: 12px;
+        font-size: 1em;
+    }
+
+    main {
+        padding: 10px;
+        flex-direction: column;
+    }
+
+    #form {
+        width: 90%; /* Para ocupar mais espaço na tela sem exagerar */
+        max-width: 320px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}

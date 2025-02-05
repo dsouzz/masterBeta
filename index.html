@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MasterMind - Login</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="./assets/masterMindLogo.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div id="header-content">
+            <marquee direction="left" scrollamount="16"><h1>Seja bem vindo! Você está usando a versão <u>beta</u> do nosso site!</h1></marquee>
+        </div>
+    </header>
+    <main>
+        <div id="form">
+            <h3>Faça Login no MasterMind Agora!</h3>
+            <form id="loginForm"> <!-- Removido o atributo action -->
+                <div class="input-group">
+                    <label for="nome">Nome de Usuário:</label>
+                    <input type="text" id="nome" name="nome" required placeholder="Insira o nome de usuário..." autocomplete="off" maxlength="8" minlength="3">
+                </div>
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="Insira o email..." autocomplete="off" maxlength="50">
+                </div>
+                <div class="input-group">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" required placeholder="Insira a sua senha..." autocomplete="off" maxlength="18">
+                </div>
+                <div class="terms">
+                    <input type="checkbox" name="terms" id="terms" required>
+                    <label for="terms">Eu aceito os <a href="terms.html">Termos e Condições</a></label>
+                </div>
+                <br>
+                <button type="submit">Entrar</button>
+            </form>
+            <script>
+                document.getElementById("loginForm").addEventListener("submit", function(event) {
+                    event.preventDefault(); // Evita o envio do form
+                    const nome = document.getElementById("nome").value;
+
+                    // Armazenando o nome no LocalStorage
+                    localStorage.setItem("usuarioNome", nome);
+
+                    // Redirecionando para a página de início
+                    window.location.href = "inicio.html";
+                });
+            </script>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; <span id="copyright-year"></span> MasterMind. Todos os direitos reservados.</p>
+    </footer>
+</body>
+
+</html>
